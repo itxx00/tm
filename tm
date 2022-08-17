@@ -16,6 +16,7 @@ install_tm() {
     else
         [ -f $cmd ] || yum -y install tmux
     fi
+    /bin/tar xf $cwd/pkgs/starship.tar.gz -C $bindir/
     echo "Installing tm to $bindir"
     /bin/cp -f $cwd/tm $bindir/tm
     [ -f $tmconf ] && mv $tmconf{,.bk-$(date '+%Y%m%d%H%M%S')}
@@ -24,12 +25,10 @@ install_tm() {
         echo "Updateing $HOME/.vimrc"
         /bin/cp -f $cwd/conf/vimrc $HOME/.vimrc
     }
-    [ -f $HOME/.bashrc ] || {
-        echo "Updateing $HOME/.bashrc"
-        /bin/cp -f $cwd/conf/bashrc $HOME/.bashrc
-    }
     [[ -n "$(tail -c1 $HOME/.bashrc)" ]] && echo >>$HOME/.bashrc
-    grep -q 'vim' $HOME/.bashrc || echo "alias vi='vim'" >>$HOME/.bashrc
+    grep -q "custom-bashrc" $HOME/.bashrc || {
+        cat $cwd/conf/bashrc >>$HOME/.bashrc
+    }
 }
 
 cpustat() {

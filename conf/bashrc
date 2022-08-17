@@ -1,9 +1,4 @@
-# .bashrc
-
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-        . /etc/bashrc
-fi
+# custom-bashrc
 stty erase ^H
 export HISTCONTROL=ignorespace:erasedups
 export PROMPT_COMMAND='history -a'
@@ -15,3 +10,6 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias vi='vim'
+
+# starship
+eval "$(/usr/local/bin/starship init bash)"
