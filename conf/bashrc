@@ -1,5 +1,6 @@
 # custom-bashrc
-stty erase ^H
+#stty erase ^H
+#stty erase ^?
 export HISTCONTROL=ignorespace:erasedups
 export PROMPT_COMMAND='history -a'
 export HISTIGNORE="ls:ps:history"
