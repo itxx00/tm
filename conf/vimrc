@@ -2,7 +2,7 @@ set term=xterm
 set noai "filetype plugin indent off
 set ts=4
 set sw=4
-match ErrorMsg /\s\+$\| \+\ze\t/
+match ErrorMsg /\s\+$\| \+\ze\t\|^\t/
 set expandtab
 set nocp "nocompatible关闭vi兼容
 set bs=2 "在insert模式下用退格键删除
